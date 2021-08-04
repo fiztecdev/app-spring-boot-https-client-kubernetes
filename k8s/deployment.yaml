@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-client-deployment
+  labels:
+    app: spring-boot-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-client
+  template:
+    metadata:
+      labels:
+        app: spring-boot-client
+    spec:
+      containers:
+        - name: spring-boot-client
+          image: spring-boot-client:v2
+          ports:
+            - containerPort: 8080
